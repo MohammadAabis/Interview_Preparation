@@ -1,0 +1,78 @@
+1- CSS Box model?
+ 
+The CSS Box Model is a fundamental concept in CSS that describes how HTML elements are rendered as rectangular boxes and how their dimensions are calculated. 
+--> Content: This is the innermost area of the box, where the actual content of the element (text, images, videos, etc.) resides. It is controlled by the width and height properties in CSS.
+--> Padding: It is the space between the content and the element's border. It is controlled by (padding-top, padding-right, padding-bottom, padding-left).
+--> Border: It provides a visual boundary for the element. It is controlled by ( border, border-width, border-style, border-color)
+--> Margin: It creates space between the element and other adjacent elements on the page. It is controlled by (margin-top, margin-right, margin-bottom, margin-left).
+
+2- Visibility hidden and display none?
+
+--> Visibility hidden : It takes space and hide the content without breaking layout.
+--> Display none: Remove an element from both view and layout.
+
+3- CSS positioning values like absolute, relative, fixed and sticky?
+
+--> Absolute: When position set to absolute it always position itself feom nearest ancestor, if no such ancestor exist then it position itself to root html element.
+--> Relative: When position set to relative it always position itself from its original position.
+--> Fixed: When position set to fixed it always fixed at same position even the page is scroll.
+--> Sticky: When position set to sticky it behaves like a relative untill a defined scroll mark is reached after it sticks to its defined position even scrolling.
+
+4- CSS combinators?
+
+--> Descendant Combinator (space): Selects all elements that are descendants (children, grandchildren, etc.) of another specified element.
+For example (div p {color:black} Selects all <p> elements inside any <div>)
+
+--> Child Combinator (>): Selects only the direct children of a specified element.
+For example (div > p {color:black} Selects only <p> elements that are direct children of <div>)
+
+--> Adjacent Sibling Combinator (+): Selects an element that is immediately preceded by another specified element and shares the same parent. It should be sibling not the child.
+For example (h2 + p {margin-top: 20px } Selects the <p> element immediately following an <h2> and sharing the same parent.)
+
+General Sibling Combinator (~): Selects all elements that are preceded by another specified element and share the same parent.
+For example (div ~ p {font-style: italic} Selects all <p> elements that come after a <div> and share the same parent.)
+
+5- Specificity Order:
+
+--> Inline Styles -- 1000
+--> IDs -- 100
+--> Classes, attributes and pseudo classes -- 10
+--> Elements and pseudo-elements -- 1
+
+6- SASS and LESS?
+
+Sass 
+Language: Written in Ruby, processed server-side. 
+Features: Offers advanced features like variables, nested rules, mixins, inheritance, and built-in functions. 
+Syntaxes: Supports two syntaxes: the original indented syntax and SCSS (Sassy CSS), which is more popular and directly compatible with CSS. 
+Best For: High-performance, scalable, enterprise-level applications, and complex stylesheets
+
+Less
+Language: JavaScript-based, processed client-side or server-side. 
+Features: Includes variables, mixins, and functions for reusability and maintainability. 
+Flexibility: Known for its simplicity, making it a good option for quick iteration and prototyping. 
+Best For: Smaller projects or teams that prefer a straightforward syntax and rapid development. 
+
+7- Pseudo-class and Pseudo-element?
+
+--> Pseudo-class: Pseudo-classes are used to style elements when they are in a particular state or condition. Like hover, active, focus. Denoted by (:).
+
+--> Pseudo-element: PIt is used to style specific, "virtual" parts of an element that are not explicitly defined in the HTML. Denoted by (::).
+
+8- Transition and Animation?
+
+--> Transition: It happens when some triggers or after some event like hovering.
+
+--> Animation: It doesn't need triggers, it automatically happens.
+
+9- What is clamp function?
+
+clamp(minimum value, prefered value, maximum value)
+
+10- px, em, rem, % and vw?
+
+--> px: It is fixed.
+--> em: It is responsive and give style with respect to parent element.
+--> rem: It is It is responsive and give style with respect to root.
+--> %: It is also give style with respect to its parent element.
+--> vw: It is responsive and flexible.
