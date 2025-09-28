@@ -1,0 +1,48 @@
+Q1 - What is HTML?
+Ans - Foundation of any web page, it gives the structure of your website by allowing adding contents and buttons and many more things.
+
+Q2 - <!DOCTYPE html> means?
+Ans - It tell the browser to clarify the version of html and how to interpret the code. In this, it is HTML5.
+
+Q3 - What are Meta Tags?
+Ans - It is used to provide additional information about a web page.
+--> charset="UTF-8" -- It is important and used to display different language characters on browser correctly.
+--> name="viewport" -- It is used for responsive design and alsi very important.
+--> name="description" -- it is used for SEO purpose to search this web page.
+
+Q4 - Difference between <div> and <span> element?
+Ans - Div is used to group and structure the content on a web page. On the other hand, Span is used to apply styles for specific  section inside a div.
+
+Q5 - Semantic Elements?
+Ans - Those Elements which gives you a complete sense of data they contain like <header>, <footer>, <section>, <address> and <main>.
+
+Q6 - Difference between Block-level and Inline Elements?
+Ans - Block elemnts (<div>,<p>,<h1>,<ul>,<li>,<table>) create new lines while inline elements (<span>,<a>,<strong>,<emp>,<img>,<input>) do not start new line.
+--> You can set both height and width for block element for inline element you cant.
+
+Q7 - Absolute and Relative URLs?
+Ans - Absolute urls provide full urls like (http://www.test.com) and take you to another websites. On the otherhand relative urls provide urls like (page.html or images/image1.png) and browser behave it differently and search it inside the website.
+
+Q8 - HTML best practices for SEO?
+Ans - Use Semantic HTML Elements, Optimize page titles, use Meta description tags, use proper heading tags, optimize image by alt attributes.
+
+Q9 - Tags, Elements and Attribites?
+Ans - <input type="text"></input> in this the simple <input> is called tags, and insideit there is attribute which is type and when we use starting tag and ending tag it is called html elements.
+
+Q10 - <b>, <strong>, <i>, <emp>?
+Ans - b makes the text bold and i for italic. Strong makes text bold and tell the browser it is important and emp is used to emphasize the text while reading.
+
+Q11 - Data Attributes?
+Ans - It provide a way to add a custom data attributes to add aditional information.
+
+Q12- HTML vs HTML5 ?
+
+HTML:
+--> Doctype declaration is too long and complicated.
+--> Div tag was used all the time.
+--> It store data on a user's browser was through cookies, which were very limited in size and were sent with every HTTP request, slowing down performance
+
+HTML5:
+--> Doctype declaration is too long and complicated.
+--> It introduce semantic element like <header>, <footer>.
+--> It introduced localStorage and sessionStorage. These provide much larger storage capacity and are more secure, as the data is not sent with every HTTP request.
