@@ -13,7 +13,7 @@ The CSS Box Model is a fundamental concept in CSS that describes how HTML elemen
 
 3- CSS positioning values like absolute, relative, fixed and sticky?
 
---> Absolute: When position set to absolute it always position itself feom nearest ancestor, if no such ancestor exist then it position itself to root html element.
+--> Absolute: When position set to absolute it always position itself from nearest ancestor, if no such ancestor exist then it position itself to root html element.
 --> Relative: When position set to relative it always position itself from its original position.
 --> Fixed: When position set to fixed it always fixed at same position even the page is scroll.
 --> Sticky: When position set to sticky it behaves like a relative untill a defined scroll mark is reached after it sticks to its defined position even scrolling.
@@ -57,12 +57,11 @@ Best For: Smaller projects or teams that prefer a straightforward syntax and rap
 
 --> Pseudo-class: Pseudo-classes are used to style elements when they are in a particular state or condition. Like hover, active, focus. Denoted by (:).
 
---> Pseudo-element: PIt is used to style specific, "virtual" parts of an element that are not explicitly defined in the HTML. Denoted by (::).
+--> Pseudo-element: It is used to style specific, "virtual" parts of an element that are not explicitly defined in the HTML. Denoted by (::).
 
 8- Transition and Animation?
 
 --> Transition: It happens when some triggers or after some event like hovering.
-
 --> Animation: It doesn't need triggers, it automatically happens.
 
 9- What is clamp function?
@@ -73,6 +72,6 @@ clamp(minimum value, prefered value, maximum value)
 
 --> px: It is fixed.
 --> em: It is responsive and give style with respect to parent element.
---> rem: It is It is responsive and give style with respect to root.
+--> rem: It is responsive and give style with respect to root.
 --> %: It is also give style with respect to its parent element.
 --> vw: It is responsive and flexible.
