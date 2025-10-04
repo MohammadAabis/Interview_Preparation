@@ -1,0 +1,209 @@
+1- What is JavaScript?
+
+JavaScript is a high-level, interpreted programming language primarily known for enabling interactive and dynamic content on websites. It is an interpreted language which does not need to compile because JavaScript code is directly executed by a browser's JavaScript engine.
+
+2- Template literals in JavaScript?
+
+It is used to embed variables and expression directly into strings.
+console.log(`Hello ${name}!`)
+
+3- Hoisting?
+
+It is a mechanism where variable and function declarations are moved to the top of their scope before their execution.
+
+--> Function Hoisting: It allows you to call a function before its declaration.
+
+greet(); // Output: Hello!
+
+function greet() {
+  console.log("Hello!");
+}
+
+--> Variable Hoisting:
+Var are hoisted and initialized to undefined.
+console.log(myVar); // Output: undefined
+var myVar = 10;
+console.log(myVar); // Output: 10
+
+Let and const are also hoisted, but they are not initialized.
+// console.log(myLet); // ReferenceError: Cannot access 'myLet' before initialization
+let myLet = 20; || const myLet = 20;
+console.log(myLet); // Output: 20
+
+4- Difference between var, let and const.
+
+var: Function scoped can be re-declared and update.
+let: Block scoped can be update but not re-declared.(block like if block).
+const: Block scoped can't be re-declared and reassigned. But if it holds an object/array, that object/array can be mutated.
+
+5- Primitive vs Non Primitive datatypes?
+
+Primitive Data Types:
+--> Primitive datatypes are immutable meaning they can't be modified. It includes Number, string, Boolean, undefined, null, symbol, BigInt.
+--> Primitive values are stored directly in the stack memory. The stack is a fast, fixed-size memory space. When you assign a primitive variable to another, a copy of the value is made.
+
+
+Non-Primitive Data Types:
+--> Non-primitive are mutable meaning they can be modified. It includes Object, Array, Function.
+--> It represent a reference and can hold multiple values.
+--> Non-primitive values are stored in the heap memory. The heap is a larger, more flexible, and slower memory space. It does not store the object itself, but rather a reference to where the object is located in the heap.
+
+6- == and === ?
+
+--> == It performs type coercion before comparing the values. 5 == '5' -- True
+--> === It performs a strict comparison without any type coercion. 5 === '5' -- False.
+
+7- Null and undefined?
+
+--> Undefined: Variable has been declared but not initialized so it give default value of undefined.
+--> Null: Explicitly assigned to represent no value.
+
+8- Event Bubbling and Event Capturing?
+
+--> Event Capturing: A propagation model where events are handled from the outermost element to innermost.
+--> Event Bubbling: A propagation model where events are handled from the innermost element to outermost.
+
+9- IIFE (Immediate Invoked Function Expression)?
+
+A JS function that is defined and executed immediately after it's created and don't need to call it.
+
+10- Closures?
+
+A closure in JS occurs when an inner function "remembers" and can access variables from its outer  function's scope, even after the outer function has finished executing. This allows the inner function to retain a reference to those variables.
+The purpose of this is to enable data encapsulation by creating private variables.
+
+11- SetTimeout vs setInterval?
+
+--> SetTimeout: It execute after specific time.
+--> SetInterval: It execute after every specified time.
+
+12- Event Delegation?
+
+It is a technique for handling events efficiently, particularly when dealing with a large number of child elements or dynamically added elements. Instead of attaching individual event listeners to each child element, a single event listener is attached to a common parent element. 
+
+Benefits:
+--> Improved Performance.
+--> Memory Efficiency.
+--> Cleaner Code.
+--> Dynamic Content Handling.
+
+13- Map vs Filter vs Reduce?
+
+--> Map: Transform each element in another array. Returns the new element/array of the same length.
+--> Filter: Select element based on condition. Returns a new array with only the elements that meet the condition.
+--> Reduce: It is used when we want to reduce an array into single value. Like to find sum of an array or average. It takes two parameters accumulator(sum) and current value.
+
+14- Currying ?
+
+A technique that transforms a function with multiple arguments into a series of functions, each taking a single argument. This process allows for the partial application of functions, leading to more flexible and reusable code. 
+
+Benefits:
+--> Reusability.
+--> Improved Readability and Maintainability.
+
+15- Generator Functions?
+
+A function which execute only one time. It solve the problem like infinite loop.
+
+16- WeakSet and WeakMap?
+
+These are specialized collections that store weak references to objects. This means they do not prevent their referenced objects from being garbage collected if there are no other strong references to those objects in the program.
+
+--> Weakmap: Stores key-value pairs where the keys must be objects and the values can be any data type.
+--> WeakSet: Stores a collection of unique objects.
+
+17- Memory management in JS?
+
+In JavaScript is primarily handled automatically by the JavaScript engine through a process called garbage collection.
+--> Stack Memory: Used for static memory allocation, primarily for primitive data types and references to objects. These are fixed-size values.
+--> Heap Memory: Used for dynamic memory allocation, primarily for reference types like objects, arrays, and functions. These can vary in size.
+
+18- Deep and Shallow Copy?
+
+--> Shallow Copy: It creates a new object and copies the values of the original object's. Whenever we change something, it also affect original object.
+
+--> Deep Copy: It creates a completely new independent object, it means no reference remains between original and deep copy. Whenever we change something, it doesn't affect original object.
+
+19- Spread and Rest Operator?
+
+--> Spread: It allows to combine more data like arrays and objects.
+--> Rest: It collects multiple elements into a single array. It is primarily used in function parameters or array de-structuring.
+
+20- Debouncing and Throttling.
+
+--> Debouncing: Ensures a functions runs after a delay like setTimeOut.
+--> Throttling: Ensures a function runs at most once in a given time interval. It is used for scrolling event. 
+
+21- Shadowing in JS?
+
+It occurs when a variable declared in an inner scope has the same name as a variable in an outer scope but referencing to inner variable.
+
+22- Shaking / Tree Shaking in JS?
+
+A crucial optimization technique used to remove unused code from the final JavaScript bundle. This process aims to reduce the bundle size, which in turn leads to faster loading times and improved performance for web applications.
+
+23- Nullish Coalescing Operator (??) ?
+
+A logical operator which provides a default value when dealing with null or undefined.
+
+let name = null;
+let name1 = name ?? "Hello world";
+
+24- Find() method ?
+
+It returns only first matching element and if no matches it returns undefined.
+
+25- Map and ForEach?
+
+--> ForEach: It doesn't create new array and only prints value inside an array. It cannot store data.
+
+--> Map: When we want new array with modified values. It can store transformed result.
+
+** If you try to use forEach to render images, you'll need to manually manage the rendering process, which can be messy and goes against the principles of modern front-end development. 
+
+26- Local Storage, Session and Cookies ?
+
+--> Local Storage: Data Stays even after closing the browser. 
+Good for user preferences, theme setting and JWT tokens. 
+Used to store large and long term data.
+
+--> Session: Data is stored until tab is closed.
+Useful for temporary data like form inputs and cart items.
+
+--> Cookies: Used for authentication. 
+Can be set to expire after specific time. 
+Sent with every HTTP request, which affects performance.
+
+27- Strict Mode ?
+
+It helps to write better, secure and error free code by preventing common mistakes.
+Prevent using undeclared values.
+Disallowed duplicates parameters names.
+
+28- How to iterate object of objects in JavaScript ?
+
+The three most common and modern ways to iterate an object are with Object.keys(), Object.values(), and Object.entries(). All of these methods return an array, which you can then iterate over. After converting into an array we can then apply map() if we need new array.
+
+29- Regular vs Arrow Function ?
+
+Regular:
+--> Use 'function' keyword.
+--> Has its own this context, which is determined by how the function is called.
+--> Hoisted.
+--> We can use 'argument object' inside it.
+
+Arrow:
+--> Uses the => (arrow) syntax, often more concise, especially for single-expression functions.
+--> Does not have its own this context. It lexically inherits this from its surrounding scope.
+--> Not hoisted, must be declare before they are called.
+--> We need to use rest operator (...args) 
+
+30- Push and Pop ?
+
+Push:
+--> The push() method adds one or more elements to the end of an array.
+--> It modifies the original array and returns the new length of the array. 
+
+Pop:
+--> The pop() method removes the last element from an array.
+--> It modifies the original array and returns the removed element. 
