@@ -1,0 +1,55 @@
+1- How to protect your system if an attacker send 1000 of requests ?
+
+To protect system use rate limiting for every route with a centralized store (Redis).
+Require authentication / API keys for endpoints that access DB.
+Implement CAPTCHA to prevent this.
+Avoid sensitive data in JWT payloads and keep tokens short-lived; use refresh tokens stored securely (httpOnly cookies).
+
+2- How to optimize third party API key response ?
+
+--> TimeOut and Fallback: Always set a request timeout, don’t let requests hang forever.
+--> Caching: Use Redis to optimize response time. First call hits API, next calls return instantly.
+--> Retry with Backoff: Sometimes API is slow temporarily.
+--> Upgrade API plans: Sometimes free/low-tier APIs are rate-limited and slow.
+
+3- Purpose of app.use() in Express ?
+
+It is used to execute (mounting) middleware functions to the application's request-processing pipeline.
+
+Key aspects of app.use():
+Middleware: It is primarily used to register middleware functions that have access to the request object (req), the response object (res), and the next middleware function in the application's request-response cycle. 
+Scope of Application:
+When called without a specific path, the middleware applies to all incoming requests, regardless of the HTTP method (GET, POST, PUT, DELETE, etc.) or the URL path.
+Global Middleware: Setting up middleware that applies to the entire application, such as body parsers (express.json(), express.urlencoded()), static file serving (express.static()), logging middleware, or authentication checks.
+
+4- Next parameters in middlewares ?
+
+It is a callback function used to call next middleware function.
+
+5- Difference between route-level and application-level middleware ?
+
+Application-level middleware runs for every incoming request to the entire application like app.use(myMiddleWare), while route-level middleware is specific to a particular route or group of routes like app.use('/test', middleware).
+
+6- Routing in Express ?
+
+Routing in Express.js defines how an application responds to client requests at specific endpoints (URIs) and for particular HTTP request methods (GET, POST, PUT, DELETE, etc.).
+
+7- What is express.Router() ?
+
+It is used to create new router object. All routes related to user management (/users, /users/:id, etc.) can be defined within a single router.
+
+8- Template Engine ?
+
+A tool that helps to generate dynamic HTML content on the server-side, allowing for the creation of reusable templates and the injection of data into views.
+
+9- Multer ?
+
+Multer is a middleware package for Express. which is typically used for file uploads. It has methods like (upload.single, upload.multiple).
+
+10- Optimize Performance in Express ?
+
+To optimize performance we used technique like "compression".
+
+11- CORS in Express ?
+
+Cross-Origin Resource Sharing (CORS) allows to request other domain.  When building modern web applications, it's common for a frontend (e.g., a React or Angular app) and a backend API (e.g., built with Express) to reside on different domains or ports. Without proper CORS configuration, the browser will block requests from the frontend to the backend, leading to "CORS errors." 
