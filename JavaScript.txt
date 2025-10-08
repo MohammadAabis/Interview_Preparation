@@ -206,6 +206,4 @@ Push:
 
 Pop:
 --> The pop() method removes the last element from an array.
---> It modifies the original array and returns the removed element. 
-
-event loop in jS ? Macrotask and MicroTask ? debugging techniques ?
+--> It modifies the original array and returns the removed element.
