@@ -194,3 +194,6 @@ Node.js (outside the browser):
 A JavaScript runtime environment that allows JavaScript to be executed outside of a web browser, typically on a server.
 It Runs on the server-side, using the same V8 JavaScript engine as Chrome.
 
+25- What happens when user search any website (like google.com) ?
+
+When a user searches Google or any website, their browser sends a request via the Domain Name System (DNS) to find the website's IP address, then establishes a secure connection with the appropriate server, retrieves the website's content (HTML, CSS, JavaScript), and finally renders it in the browser for the user to see.
