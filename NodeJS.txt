@@ -1,0 +1,196 @@
+1- What is NodeJS ?
+
+It is a open source and cross-platform JavaScript runtime environment that can run on Windows, Linux and MacOS.
+
+2- Key features of NodeJS ?
+
+--> Asnychronous and event driven:
+Operation don't block the execution thread.
+Flow of program is determined with user interaction(like user call some api).
+
+3- What does "Single Threaded" mean?
+
+The main thread that runs your JavaScript code in Node.js is single-threaded.
+This means Node executes one piece of JS at a time in the event loop.
+
+4- How Does Node Handle Thousands of Requests ?
+
+Node.js main thread is single-threaded.
+It uses libuv (a C/C++ library) under the hood, which manages a thread pool and event loop.
+
+Example:
+Single waiter (main thread) → takes orders.
+Kitchen staff (libuv thread pool) → actually cooks the meals (I/O tasks).
+While the food is being prepared, the waiter can take more orders instead of waiting.
+When food is ready, the waiter serves it.
+This way, one waiter can handle many customers.
+
+5- Working of NodeJS ?
+
+Non-blocking Requests: If it is non-blocking request like (file I/O, HTTP Requests) NodeJS process it and send the response back to client.
+Blocking Request: IF it is blocking request like (querying to db) NodeJS uses 'libuv thread pool' which has multiple threads to handle blocking request and after completing it, it send to client.
+
+6- Why is NodeJS single thread ?
+
+It is single thead because to avoid problems like thread conflict and deadlock.
+
+
+7- Synchronous and Asnychronous ?
+
+Synchronous: 
+--> Execution: Synchronous code executes sequentially, line by line, in a blocking manner. Each operation must complete before the next one can begin.
+--> Call Stack: Operations are placed onto the call stack, and the JavaScript engine processes them one at a time.
+--> Blocking: If a synchronous operation is time-consuming it will block the main thread, preventing other code from executing and potentially causing the user interface to become unresponsive.
+
+Asnychronous:  
+--> Execution: Asynchronous code allows operations to run independently without blocking the main thread. While waiting for a time-consuming task to complete, other code can continue to execute.
+--> Non-Blocking: This approach is crucial for tasks like network requests (fetching data from an API), file operations, or timers, which might take a variable amount of time.
+
+8- How does NodeJS achieve Asynchronous Programming ?
+
+--> Callbacks: Functions passed as arguments to other functions, executed when a particular event or task completes.
+--> Promises: Represent the eventual result of an async task, enabling chaining with .then() and .catch() for continued processing.
+--> async/await: Simplifies async programming by pausing code execution at await until a promise resolve.
+
+9- Event loop in NodeJS ?
+
+🧠 Call Stack – where JS runs your code line by line.
+📦 Web APIs / Node APIs – handle async stuff like setTimeout, fetch, etc.
+📬 Callback Queue (Task Queue) – stores async callbacks waiting to run.
+🔁 Event Loop – constantly checks if the stack is empty, and if yes, moves queued tasks back into it.
+
+--> Synchronous code block the call stack, so it run first.
+--> When it encounters async function (setTimeout, file I/O or HTTP request) it ia send to Web APIs, which handle the operation in background.
+--> The Call Stack does not wait for async finction to finish and it moves to next line imeediately.
+--> Once the Call Stack is empty, the event loop first checks Microtask Queue (Promises, Process.NextTick).
+--> Finally, the Event Loop process the Task Queue(file I/O).
+
+10- What are promises in NodeJS ?
+
+Promises are used to handle asynchronous operation, providing a cleaner and more readable alternative to nested callbacks.
+
+States:
+-- Pending
+-- Fulfilled
+-- Rejected
+
+How it works:
+-- .then(): Handles success.
+-- .catch(): Handles error.
+
+11- What is package.json ?
+
+It contains all the details about project, like name, version, description and the packages we use. It also tell where to start our project.
+
+12- What are top 5 built-in modules.
+
+--> http: used to create web server for handling client requests.
+--> fs(file system): used to read, write and deleting files.
+--> path: Manages and resolves file paths effectively.
+--> os: provides information about the operating system.
+--> express: simplifies web app development with easy to use features.
+
+13- Middleware in NodeJS ?
+
+It is a function used in web applications to process requests and responses. It serves as bridge between the client and server, enabling tasks like logging, authentication, error handling and data parsing.
+
+14- Purpose od Module Exports in NodeJS ?
+
+-- Make code Modular.
+-- Code Reusability.
+-- Abstraction.
+
+15- SetImmediate() and SetTimeOut () ?
+
+These are used to scedule the task.
+
+SetImmediate():
+--> Execute immediately after the current event loop iteration.
+--> Has higher priority than other I/O events.
+
+SetTimeOut():
+--> Executes after a specific delay.
+--> Has lower priority compared to SetImmediate.
+
+16- Purpose of CreateServer() ?
+
+To create a web server to handle client requests.
+
+Working:
+Request Handling (incoming request)
+Processing Requests.
+Sending Response.
+
+17- Role of clusters in improving NodeJS performance and how they work ?
+
+Problem:
+Since NodeJS runs on a single thread by default it means only one CPU core is being used even if your server has 8 or 16 cores. So, if one core is busy handling many requests, the others just sit idle.
+
+Cluster:
+The cluster module allows you to create multiple NodeJS processes (workers) that all share the same server port effectively utilizing multiple CPU cores for better performance. Each workers runs its own event loop, memory, and V8 engine. It is managed by a master (primary) process that distributes requests.
+
+Working of Clusters:
+The master process uses the cluster module to fork(split/branch) child processes. Each runs the same code The OS automatically distributes incoming requests among the workers. If a worker crashes, the master can spawn(generate) a new one improving reliability.
+
+18- CLusters Vs Worker Thread ?
+
+🧠 Cluster:
+Creates multiple Node processes (one per CPU core).
+Each process has its own memory & event loop.
+Used for scaling servers — handling more incoming requests in parallel.
+Can’t share memory directly between workers.
+Communication via messages (IPC).
+
+✅ Use it for:
+Web servers, APIs — to utilize all CPU cores.
+
+⚙️ Worker Threads:
+Creates multiple threads inside a single process.
+All threads share the same memory.
+Used for CPU-intensive tasks (e.g., image processing, encryption, large computations).
+Communication via shared memory or message passing.
+
+✅ Use it for:
+Heavy computation tasks inside one app, not scaling servers.
+
+19- Process.NextTick() and SetImmediate() ?
+
+Both are asynchronous functions and behave differently.  Process.NextTick schedule a function to be executed just after synchronous code but before event loop abd SetImmediate schedule a callbacks to be executed in the check phase
+of the event loop.
+
+20- Buffer and Stream ?
+
+--> Buffer:
+Temporary storage for binary data.
+Load entire data.
+High Memory usage.
+Slow for large data.
+
+--> Stream:
+Handle data in chunks.
+Process piece by piece.
+Low memory usage.
+Fast and efficient.
+
+21- Macro and Micro Task ?
+
+Micro Task are high priority and execute just after synchronous code. It includes like Process.NextTick, promise.then, catch, finally.
+Macro Task execute after Micro. It includes setTimeout, setInterval, SetImmediate.
+
+22- State Management ?
+
+To achieve this, we should use Redis( caching, session storage), Mongo/Postgre (long term storage), JWT(stateless auth).
+
+23- How to improve NodeJS app performance ?
+
+By optimizing synchronous code(use async func), efficient db quries(pagination, indexing), Redis, Clustering and load balancing(Pm2, cluster).
+
+24- Difference between JavaScript and NodeJS in browser ?
+
+JavaScript (in the browser):
+A client-side scripting language for creating interactive and dynamic web pages. It execute directly within web browsers (e.g., Chrome, Firefox, Safari) using their built-in JavaScript engines (like V8 in Chrome).
+
+Node.js (outside the browser):
+A JavaScript runtime environment that allows JavaScript to be executed outside of a web browser, typically on a server.
+It Runs on the server-side, using the same V8 JavaScript engine as Chrome.
+
