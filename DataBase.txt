@@ -1,0 +1,209 @@
+====================   PostgreSQl   ====================
+
+1- PostgreSQl and its features ?
+
+An open-source, powerful and feature rich relational db system. It follows the SQL (Structured Query Language) standards, which support complex query.
+It can easily handle large volume of data efficiently.
+It support Arrays, JSON and JSONB data types.
+JSON stores data as plain text.
+JSONB stores data in binary format for effiecient query.
+
+2- Schema ?
+A schema is a named collection of database objects, including tables, views, indexes, data types, functions, stored procedures, and operators. Schemas provide a way to organize and namespace these objects within a database.  
+
+3- Triggers ?
+It is a special functions that automatically execute in response to specific database events. These events can include INSERT, UPDATE, DELETE. Triggers are a powerful tool for automating database operations, enforcing data integrity, and implementing complex business logic.
+
+4- Stored procedures ?
+
+A stored procedure in PostgreSQL is a predefined block of SQL code (can include logic, loops, conditionals, etc.) that’s stored and executed on the database server itself.
+By default, a stored procedure runs inside a transaction. So, if one operation fails, the entire procedure fails and all changes are rolled back and nothing gets saved.
+
+5- PostgreSQL database designing tips ?
+
+- Plan the schema carefully.
+- Normalize data: Avoid redundant but good performance.
+- Proper Indexing.
+- Optimize Queries.
+- Security and access control.
+
+6- Joins in PostgreSQL ?
+
+Inner Join: It is used when we want to fetch the data that have matching values in both tables. In order words, when we want to fetch only matching data.
+Left Join: It returns all rows from left table and only matching rows from right table. If there is no match the result will contain Null for columns from right table.
+
+7- Relational DB:
+
+- Data is organised into tables(rows and columns).
+- Each table has predefined schema.
+- Table can have relationship with other tables with foreign key.
+- Ideal for complex queries, transaction and data integrity.
+
+8- Non Relational DB:
+
+- Data can organised in key-value pairs or in documents form.
+- Schemaless, means can store different type of data.
+- Can handle structure, semi-structure and un-structure data.
+- Ideal for social network, IOT and e-commerce.
+
+9- Transaction ?
+
+A multiple operation which complete or fail in a single operation.
+
+--> Atomicity: All operations within a transaction are completed successfully or none are applied.
+--> Consistency: It ensures that the db transaction from one valid state to another state.
+--> Isolation: Transactions are isolated from each other until they are completed.
+--> Durability: Once a transaction is committed the changes are permanent.
+
+
+====================   MongoDB   ====================
+
+1- What is MongoDB and its features ?
+
+MongoDB is a popular, open-source, document-oriented NoSQL database that stores data in flexible, JSON-like documents called BSON. 
+Key features include its document model, dynamic schema, horizontal scalability through sharding, high availability via replication, and a powerful aggregation framework for data processing.
+
+2- Documents and Collection in MongoDB ?
+
+Documents in MongoDB is JSON like object. UnLike in relational db here is documents for each record/row.
+Collection consists of group of documents. UnLike in relational db here is collection for table.
+
+3- BSON ?
+
+A binary representaion of JSON used by MongoDB for internal storage.
+BSON extends JSON with additional data types like Date and Binary for optimized storage and efficiency.
+
+4- Capped Collection ?
+
+It is a fixed-size collection that automatically overwrites the oldest documents with new ones once it reaches its allocated size limit or document count limit. 
+
+5- CAP ?
+
+--> Consistency:	Every node in the system has the same data at the same time.
+--> Availability:	Every request gets a response, even if some nodes fail.
+--> Partition:      Tolerance	The system continues working even if communication breaks between nodes (network partition).
+
+6- Replication ?
+
+It creates multiple copies of data across servers to ensure high availability and fault tolerance. A group of servers, called a replica set, maintains the same dataset. One server acts as the primary for all write operations, and it replicates that data to the secondary servers. If the primary fails, a secondary is automatically elected to become the new primary, allowing the application to continue running with minimal disruption.
+
+7- Connection Pooling ?
+
+It is atechnique used to manage db Connection efficiently by maintaining a pool of re-useable connection instaed of opening and closing a new connection every time a query is execute.
+
+8- Aggregation ?
+
+It helps you to process and analyze data in Structured way, like a pipeline where data flows through different steps. In simple it is like to get final result  by appllying different filters.
+
+9- Replication and Sharding mechanism ?
+
+Replication:
+The process of copying data across multiple MongoDB servers (a replica set) to provide high availability, data redundancy, and fault tolerance. A replica set consists of a primary node(all writes and reads) that receives all write operations and one or more secondary nodes that replicate the data. If the primary fails, a secondary automatically becomes the new primary, ensuring the application can continue to operate. 
+
+Sharding:
+Sharding means splitting data across multiple servers (shards) so each server holds only part of the data, not a full copy.
+| Component                 | Description                                                    |
+| ------------------------- | -------------------------------------------------------------- |
+| **Shard**                 | A subset of data (e.g. users A–M in one shard, N–Z in another) |
+| **Config Server**         | Stores metadata about which data lives on which shard          |
+| **Query Router (mongos)** | Routes queries to the correct shard(s)                         |
+
+
+🧩 In Short:
+Replication = same data on multiple nodes → high availability
+Sharding = split data across nodes → scalability
+
+10- What are data models and its types ?
+
+A data model defines how data is structured, stored, and related inside your database.
+What entities (collections/tables) exist.
+What fields they have.
+And how they relate to each other.
+
+-- Embedded Data Model
+Store related data inside a single document.
+
+✅ Best for one-to-few or tightly related data.
+✅ Faster reads (fewer joins/lookups).
+❌ Larger document size, limited flexibility.
+
+-- Normalized (Referenced) Data Model
+Store data in separate collections and link them using references (like SQL foreign keys).
+
+✅ Best for one-to-many or many-to-many relationships
+✅ Avoids duplication
+❌ Requires $lookup or multiple queries
+
+11- How does indexing works in MongoDB ?
+
+An index in MongoDB is like an optimized “table of contents” for your collection.
+Without an index, MongoDB has to scan every document in the collection to find matching data (called a collection scan).
+With an index, MongoDB can jump directly to the matching documents just like looking up a word quickly in a book’s index.
+
+12- How you store large data like videos ?
+
+-- Handling Millions of Records (Big Volume of Data):
+MongoDB can easily handle millions or billions of records but it depends on how you design your data and cluster.
+
+✅ Techniques:
+Sharding (Horizontal Scaling)
+Split your data across multiple servers (“shards”).
+
+-- Handling Large Files (like Videos, PDFs, Images):
+MongoDB documents have a 16 MB size limit so if you need to store big files, you use GridFS.
+GridFS stores a large file by splitting it into small chunks (default 255 KB each) and saving them across two collections.
+
+| Use Case                  | Recommended Storage                                    |
+| ------------------------- | ------------------------------------------------------ |
+| Millions of small records | MongoDB with indexing + sharding                       |
+| Big files (few GBs)       | GridFS                                                 |
+| Huge video library        | Cloud storage (S3, Azure Blob, etc.) + URLs in MongoDB |
+| Archived data             | Separate “cold” database or data lake                  |
+
+12- Operators in MongoDB and usage ?
+
+| Category    | Example Operator              | Purpose                   |
+| ----------- | ----------------------------- | ------------------------- |
+| Comparison  | `$gt`, `$lt`, `$in`           | Filter data               |
+| Logical     | `$and`, `$or`, `$not`         | Combine conditions        |
+| Element     | `$exists`, `$type`            | Check field presence/type |
+| Array       | `$all`, `$elemMatch`, `$size` | Match inside arrays       |
+| Update      | `$set`, `$inc`, `$push`       | Modify documents          |
+| Aggregation | `$sum`, `$avg`                | Compute results           |
+
+13- Having and Where in DB ?
+
+| id | product | region | amount |
+| -- | ------- | ------ | ------ |
+| 1  | Apple   | East   | 100    |
+| 2  | Banana  | West   | 200    |
+| 3  | Apple   | West   | 300    |
+| 4  | Banana  | East   | 400    |
+| 5  | Apple   | East   | 500    |
+
+-- Where:
+Filter rows before grouping.
+Filter rows where region = 'East'
+Then group remaining rows by product
+Then sum their amount
+
+-- Having:
+Filter after grouping.
+Group all rows by product
+Calculate SUM(amount)
+Then filter groups whose total_sales > 500
+
+14- When to use RDMS and No-SQL?
+
+-- SQL:
+Banking systems 💰
+Inventory or ERP systems 🏬
+E-commerce orders 🛒
+Payroll, billing, HR apps 👔
+
+-- No-SQL:
+Social networks (posts, comments, likes) 💬
+Real-time analytics dashboards 📊
+IoT device data 📡
+Chat applications 💬
+Product catalogs or content management 🧾
