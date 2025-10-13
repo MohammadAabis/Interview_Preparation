@@ -197,3 +197,28 @@ It Runs on the server-side, using the same V8 JavaScript engine as Chrome.
 25- What happens when user search any website (like google.com) ?
 
 When a user searches Google or any website, their browser sends a request via the Domain Name System (DNS) to find the website's IP address, then establishes a secure connection with the appropriate server, retrieves the website's content (HTML, CSS, JavaScript), and finally renders it in the browser for the user to see.
+
+26- Architecture and its types ?
+
+Architecture:
+How your backend system is structured, how components (services, databases, APIs) are organized, communicate, and scale.
+
+-- Monolithic Architecture (Macroservice):
+One large unified application where all modules (auth, users, payments, etc.) are in one codebase and one database.
+One Node.js app runs everything.
+One shared database (e.g., MongoDB).
+Easy to build & deploy (good for small/medium apps).
+Hard to scale or maintain as app grows.
+
+-- Microservices: 
+Application divided into small, independent services — each with its own logic and database.
+Each service:
+Has its own database (can be different type).
+Runs on its own port.
+Communicates via HTTP or message queue (Kafka, RabbitMQ).
+
+Why separate databases?
+
+Each service fully owns its data.
+Avoids conflicts or schema coupling.
+Allows better scaling & flexibility.
