@@ -1,0 +1,304 @@
+1- What is React ?
+
+React is JS library used for building powerful UI. It works on component based architecture. It also create virtual dom, the actual copy of real dom that minimizes direct dom manipulation which boost performance.
+
+2- Single Page Application (SPA) ?
+
+A type of web application which loads a single html page. It update only the affected part only instead of rendering whole page. 
+Benefits to use this are Faster load times, Better Responsiveness but harder for SEO, because it used only sinle url.
+
+3- JS and JSX ?
+
+--> JS: It is a plain JS code without any special syntax or extension.
+--> JSX: It is a JS syntax extension which allows to write HTML like code with in JS. Easier to readable and maintainable due to HTML like structure.
+
+** Babel is JS compiler which convert JSX to JS before rendering.
+
+4- Class Component and Functional Component ?
+
+--> Class Component: It is used before hooks and it is extended with 'React.Component'. State changes inside this was manage with 'this'.
+--> Functional Component: It is used after the introduction of states. We manage states with hooks.
+
+5- Stateless Component and Statefull component ?
+
+--> Stateless Component: They do not manage any state, they just recieve data and display it.
+--> Statefull component: They manage their own state and update the states according to user interaction.
+
+6- Properties (props) ?
+
+A way to pass data from parent component to child component. The child component can not modify these values because these are read only. 
+
+7-  State and Props in React ?
+
+--> State: It is a mutable object and store dynamic data. It is private and fully controlled by the component it belongs to.
+--> Props: It is a immutable object and only use for read data. It is only controlled by the parent component.
+
+8- Controlled and UnControlled Component ?
+
+--> Controlled Component: The component where React's state controls the form input element. It is used when control is required over the data being entered into a from.
+--> UnControlled Component: It is used when there is no need to dynamically inspect user inputs. Like subscribing news letter or user is uploading a file. in this it is managed by 'ref'.
+
+9- Key Attribute ?
+
+A key is a special string attribute in React used to uniquely identify elements in a list.
+It helps React efficiently update and re-render component when the list change.
+when static data, then use index as a key otherwise use unique id's.
+
+10- Fragments in React ?
+
+It is a React special component which allows us to group multiple element "without adding extra nodes to the DOM"
+-> Avoid Extra Dom.
+-> Improves Performance.
+-> Better Compatibility with tables.
+
+** If we need to pass key (eg in list) use React Fragments because it don't add extra div elements.
+
+11- Virtual Dom ?
+
+It is a lightweight copy of the actual DOM, consisting of a tree of JS objects. React creates a VDOM for every component and keeps it up-to-date with the component's state. When a component's state changes, React first updates its VDOM, then efficiently calculates the minimum number of changes needed to update the real DOM.
+
+12- How Virtual Dom Work ?
+
+--> Reconciliation: When a component's state changes, React creates a new VDOM tree and compares it to the previous one. It uses an efficient "diffing" algorithm to find the exact differences between the two trees.
+
+--> Batching: React gathers all the changes identified during the diffing process and batches them into a single, efficient update. This prevents multiple, slow real DOM manipulations.
+
+--> Updating: Finally, React updates the real DOM with only the necessary changes. Instead of re-rendering the entire page, it just updates the specific elements that have changed.
+
+13- Shadow DOM ?
+
+It is  designed for encapsulation and security.  It allows a component to have its own private DOM tree, style, and behavior, which are isolated from the main document's DOM and CSS. Means CSS won't leak out and in.
+
+14- Life Cycle of React ?
+
+--> Mounting: Component is created.
+In this we fetched intial data from db.
+
+--> Updating: Component is re-rendered.
+Due to user interaction, the values update and react check if update is require then it render.
+
+--> Un-Mounting: Component is removed.
+In this we actually cleaning up resources, event listner and subscription. Means we stop the connection of db.
+
+** Instead of this, we use functional components which use hooks (useEffect) to replace life cycle. They are cleaner, easier to maintain and work well with modern React features.
+
+15- Props drilling and how to avoid this ?
+
+Props drilling is when props is passed through multiple nested component. It is difficult to maintain.
+--> To avoid this we have Context APi, which is used to share data across component without props drilling.
+--> Component composition is also used, in this we structure our component in such a way that a parent component  can directly inject the data it needs into its children.
+
+16- Higher Order Component ?
+
+A function that takes component as input and after modifying it returns an enhanced version of that component.
+It don't modify the original component; they wrap it with new functionality.
+
+--> It is used to fetch data from an API and pass it as props to the wrapped component. This way, multiple components can use the same data-fetching logic without each one having to write its own useEffect hook to fetch data. 
+
+17- React Reconciliation process?
+
+When a component's state or props change, React creates a new virtual DOM tree from scratch for that component and its children. After that in 'Diffing Process' it compares what has changed in original dom, and by seeing that it only render that specific part of component and update it.
+
+** Once the comparison is complete and the changes are applied to the real DOM,  the old virtual DOM tree becomes obsolete and is automatically marked for garbage collection by the JavaScript engine. You don't have to worry about manually deleting it.
+
+18- React Portals and when should they used?
+
+In React, a portal is a way to render a component's children into different part of the DOM outside parent component's hierachy, while maintaining the React component structure.
+
+** It is used for to make popups.
+
+19- Callback hell ?
+
+It is also known as the "pyramid of doom," it arises when dealing with multiple asynchronous operations that are dependent on each other. This leads to deeply nested callback functions, making the code difficult to read, understand, debug, and maintain.
+
+--> Solution: Async and Await make it more readable and easier to manage.
+
+20- React Strict Mode ?
+
+<React.StrictMode> is a development tool that highlight potential problems in an application like deprecated methods or side effect issues. It doesn't render anything visible in the UI but enables additional check and warnings only in development mode.
+
+21- How React transfer data ?
+
+React in uni-directional, it sends data from parent to child components as props.
+But to pass data from child to parent it uses callback function.
+
+22- Webpack ?
+
+It is a module bundler, which takes JS files, CSS files, images and other assets and their depedencies and bundle them into a single file or multiple file that can be loaded by when browser. It is configured through " webpack.config.js".
+
+23- What happen if we try to update state directly in React ?
+
+React doesn't detect the change and it won't change re-render but value will change in memory.
+
+24- How to share data among sibling components or State Lifting ?
+
+Move the shared state to their closest parent and pass it down as props.
+--> The parent hold the share state (count).
+--> Child_A recieves the 'count' as props and display.
+--> Child_B recieves 'setCount' as a props to update shared state.
+
+25- Styled Component ?
+
+A popular CSS-in-JS library that allows you to write CSS styles directly into JS files.
+
+26- React Server Component ?
+
+A component which entirely rendered on server and send necessary HTML and data to client which reduce JS bundle size which improves performance.
+We can also fetch data in server component and send it to client.
+We can't use hooks, button listners in server component.
+
+27- Synthetic event in React ?
+
+In React it is a cross-browser wrapper around the browser native event.
+It handles user interactions like clicks, keyboard input etc across different browser consistently.
+Eg: Form Event, mouse and touch events.
+
+28- Dynamic routes in React ?
+
+/user/:id --> ':id' is dynamic route.
+
+29- Keys in React and its importance ?
+
+A key is a special string attribute in React, used to uniquely identify elements in a list.
+It helps React efficiently update and re-render component when list change.
+** When static data then use "index" as a key, otherwise use "id's" as a key.
+
+30- Virtualization in React ?
+
+A performance optimization technique that renders only visible items in a long list instead of doing all.
+By installing react-window we make it working.
+
+31- Memory leaks in React ?
+
+It happens when a component holds on to memory after its unmounted, due to
+--> unclosed event listner.
+--> unresolved api calls.
+--> setTimeOut or setInterval running after unmount.
+
+To identify this 
+Chrome Dev tools (F12 --> Performance tab)
+Record memory usage before and after component unmounting.
+If memory usage keeps increasing without releasing memory, there's a leak.
+
+32- What is slug and its usage ?
+
+It is a URL-friendly identifier used in React app to uniquely identify a resource, for example, in www.example.com/blog/what-is-a-slug, what-is-a-slug is the slug.
+Purpose:
+SEO optimization
+User friendly URL's
+Dynamic Routing in React Router.
+
+33- React profiler ?
+
+A built in React developer tool helps in measuring the performance of React app by tracking how often component render and how much time is yaken to render.
+It is used only fro development and debugging to check performance, but in production we remove it.
+
+34- Code Splitting ?
+
+By using Lazy and Suspense we can split code. This help to render only those pages where user visit.
+
+34- CSR , SSR, SSG, ISR ?
+
+--> Client Site Rendering:
+The browser send a request to server which respond with an empty html page and refernece of JS and CSS files. The browser then download it and execute it.
+Pros:
+Reduce server-site work load and cost.
+Great for dynamic and interactive UI.
+Ideal for Single Page Application (SPA).
+Cons:
+Poor SEO.
+Slow initial load time.
+
+--> Server Site Rendering:
+The server process the browser request, fetches necessary data and generate HTML which is then send to browser. The browser displays the fully rendered HTML page.
+Pros:
+Improved SEO as HTML is generated on server.
+Faster initial load time.
+consistent performance across devices.
+Cons:
+Higher server load, as HTML generate for each request.
+Longer time to interactive compared to CSR.
+Complex for implement and maintain.
+
+=> Best for news sites or e-commerce platform.
+
+Static Site Generation:
+Static HTML files are generated at build time after each page. When a user visits, they are surved pre-built HTML files.
+Pros:
+Faster load time because HTML is rendered at built time.
+Great for SEO.
+Reduce server load.
+Cons:
+Content might become outdated, require for rebuild and deploy.
+
+=> Best for static Content like blogs.
+
+--> Incremental Static Regeneration:
+Allows you to create or update static pages after the site has been built. Pages are periodically rebuild.
+Pros:
+Same as SSG with the ability to update Content.
+Cons:
+Complex than SSG for implementation.
+
+35- Single Page Application ?
+
+A web application that loads a single HTML page and dynamically updates the content as the user interacts with it, without requiring a full page reload from the server it update the specific part of the page that needs to change.
+Examples of SPAs
+Gmail: When you navigate through your inbox or open an email, the page doesn't fully reload. The sidebar and header stay the same while the main content area is updated with the new information. 📧
+Google Maps: As you pan and zoom, the map area updates smoothly without a page reload. New map tiles and data are fetched dynamically. 🗺️
+
+
+********************************* React Hooks *********************************
+
+36- State Management Hooks.
+
+--> useState : used for managing simple states.
+--> useReducer: used for complex state logic like login and logout.
+
+37- How "const [count, setCount] = useState(0);" value changes ?
+
+As we know when we declare array with const it can be mutable because it actually referencing the object not value. 
+In this case, when the function is triggered, our component renders,  and React gives us a new count (from its hidden memory store).
+React doesn’t reassign it, it just runs the function again with updated data.
+
+38- Side Effect.
+
+--> useEffect: It is used for handling side effect in your component such as data fetching, subscription or manually updating the DOM.
+
+39- What happens if we remove depedency array from useEffect?
+
+Runs after every render, no matter what. If your component re-renders frequently, the effect will run frequently too.
+
+40- Context and performance optimization hooks.
+
+--> useContext: Avoids prop drilling by using React context to share states globally. It is best for Global themesz, language setting and auth.
+--> useMemo: It memorizes the result of an expensive computation function and prevents re-calculation unless depedencies change.
+--> useCallback: Memorize function to avoid re-creating it every time. Best for optimizing performance when passing function as props.
+
+41- Reference Hook.
+
+--> useRef: Use for accessing DOM element or storing mutable values without causing re-renders. For example to store previous value, and it does not trigger re-renders, the previous value is stored efficiently.
+
+42- What is React Mmeo ?
+
+A higher-order component that memoizes a component that prevents unnecessary re-renders if props haven’t changed.
+Optimize rendering by memorizing the result of component.
+
+43- What is Custom Hooks ?
+
+Your own functions that start with use.
+Allow you to extract and reuse logic (stateful or effectful).
+Follow the same rules as built-in hooks (must start with use, must be called inside components/hooks).
+
+44- Redux vs Context API ?
+
+--> Redux: It provides a single, centralized store that can handle global state for the entire app. It contains Store, reducer and action methods.
+--> Context: A built in method which allows to pass data to across child without props drilling.
+
+*** Differences 
+Context re-renders every consumer when value changes.
+Redux allows only components where state is update.
+
+=== In short Redux is a state management architecture, while Context is just a React feature for avoiding prop drilling.
+
+45- Design patterns ?
