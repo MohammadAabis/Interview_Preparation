@@ -26,7 +26,7 @@ For example (div p {color:black} Selects all <p> elements inside any <div>)
 --> Child Combinator (>): Selects only the direct children of a specified element.
 For example (div > p {color:black} Selects only <p> elements that are direct children of <div>)
 
---> Adjacent Sibling Combinator (+): Selects an element that is immediately preceded by another specified element and shares the same parent. It should be sibling not the child.
+--> Adjacent Sibling Combinator (+): Selects an element that is immediately preceded by another specified element and shares the same parent. It should be sibling not the child. It only selects the immediate following sibling not another siblings.
 For example (h2 + p {margin-top: 20px } Selects the <p> element immediately following an <h2> and sharing the same parent.)
 
 General Sibling Combinator (~): Selects all elements that are preceded by another specified element and share the same parent.
