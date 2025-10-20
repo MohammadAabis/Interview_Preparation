@@ -41,6 +41,9 @@ For example (div ~ p {font-style: italic} Selects all <p> elements that come aft
 
 6- SASS and LESS?
 
+These are CSS preprocessors, used to solve problems like nesting, functions or reusable logic. Now a days, SCSS is most popular.
+Functions return reusable value logic or single value and mixin is used for reusable CSS block.
+
 Sass 
 Language: Written in Ruby, processed server-side. 
 Features: Offers advanced features like variables, nested rules, mixins, inheritance, and built-in functions. 
@@ -51,7 +54,7 @@ Less
 Language: JavaScript-based, processed client-side or server-side. 
 Features: Includes variables, mixins, and functions for reusability and maintainability. 
 Flexibility: Known for its simplicity, making it a good option for quick iteration and prototyping. 
-Best For: Smaller projects or teams that prefer a straightforward syntax and rapid development. 
+Best For: Smaller projects or teams that prefer a straight forward syntax and rapid development. 
 
 7- Pseudo-class and Pseudo-element?
 
