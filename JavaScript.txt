@@ -63,13 +63,24 @@ Non-Primitive Data Types:
 --> Event Capturing: A propagation model where events are handled from the outermost element to innermost.
 --> Event Bubbling: A propagation model where events are handled from the innermost element to outermost.
 
+Click on <button>
+  ↓
+Bubbles up through <div>, <body>, <html>, <document>
+  ↓
+React root listener catches it
+  ↓
+React finds the matching component
+  ↓
+Executes your onClick function
+
+
 9- IIFE (Immediate Invoked Function Expression)?
 
 A JS function that is defined and executed immediately after it's created and don't need to call it.
 
 10- Closures?
 
-A closure in JS occurs when an inner function "remembers" and can access variables from its outer  function's scope, even after the outer function has finished executing. This allows the inner function to retain a reference to those variables.
+A closure in JS occurs when an inner function "remembers" and can access variables from its outer  function's scope, even after the outer function has finished executing. This allows the inner function to retain a reference to those variables. It modifies that same variable, not a copy. 
 The purpose of this is to enable data encapsulation by creating private variables.
 
 11- SetTimeout vs setInterval?
@@ -95,7 +106,7 @@ Benefits:
 
 14- Currying ?
 
-A technique that transforms a function with multiple arguments into a series of functions, each taking a single argument. This process allows for the partial application of functions, leading to more flexible and reusable code. 
+A technique that transforms a function with multiple arguments into a series of functions (a function inside another function), each taking a single argument. This process allows for the partial application of functions, leading to more flexible and reusable code. 
 
 Benefits:
 --> Reusability.
