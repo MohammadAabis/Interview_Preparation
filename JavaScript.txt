@@ -118,10 +118,10 @@ A function which execute only one time. It solve the problem like infinite loop.
 
 16- WeakSet and WeakMap?
 
-These are specialized collections that store weak references to objects. This means they do not prevent their referenced objects from being garbage collected if there are no other strong references to those objects in the program.
+These are specialized collections that store weak references to objects. This means they do not prevent their referenced objects from being garbage collected if there are no other strong references to those objects in the program. Both are not iterable, and you can’t get its size.
 
---> Weakmap: Stores key-value pairs where the keys must be objects and the values can be any data type.
---> WeakSet: Stores a collection of unique objects.
+--> WeakSet: Stores a collection of unique objects. (Tracking which users are online right now)
+--> Weakmap: Stores key-value pairs where the keys must be objects and the values can be any data type. (When you want to add extra data, like how many messages each user sent)
 
 17- Memory management in JS?
 
@@ -142,8 +142,8 @@ In JavaScript is primarily handled automatically by the JavaScript engine throug
 
 20- Debouncing and Throttling.
 
---> Debouncing: Ensures a functions runs after a delay like setTimeOut.
---> Throttling: Ensures a function runs at most once in a given time interval. It is used for scrolling event. 
+--> Debouncing (Wait until user stops typing): Ensures a functions runs after a delay like setTimeOut. Used in search bars, form validations.
+--> Throttling (Limit how often function runs): Ensures a function runs at most once in a given time interval. It is used for scrolling event. 
 
 21- Shadowing in JS?
 
@@ -166,9 +166,9 @@ It returns only first matching element and if no matches it returns undefined.
 
 25- Map and ForEach?
 
---> ForEach: It doesn't create new array and only prints value inside an array. It cannot store data.
+--> ForEach: It doesn't create new array and only prints value inside an array. It cannot store data.(like printing, Updating values in a database)
 
---> Map: When we want new array with modified values. It can store transformed result.
+--> Map: When we want new array with modified values. It can store transformed result.(ike images, cards, list items)
 
 ** If you try to use forEach to render images, you'll need to manually manage the rendering process, which can be messy and goes against the principles of modern front-end development. 
 
