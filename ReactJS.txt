@@ -5,7 +5,10 @@ React is JS library used for building powerful UI. It works on component based a
 2- Single Page Application (SPA) ?
 
 A type of web application which loads a single html page. It update only the affected part only instead of rendering whole page. 
-Benefits to use this are Faster load times, Better Responsiveness but harder for SEO, because it used only sinle url.
+Benefits to use this are Faster load times, Better Responsiveness but harder for SEO, because it used only single url.
+
+Gmail: When you navigate through your inbox or open an email, the page doesn't fully reload. The sidebar and header stay the same while the main content area is updated with the new information. 📧
+Google Maps: As you pan and zoom, the map area updates smoothly without a page reload. New map tiles and data are fetched dynamically. 🗺️
 
 3- JS and JSX ?
 
@@ -36,7 +39,7 @@ A way to pass data from parent component to child component. The child component
 8- Controlled and UnControlled Component ?
 
 --> Controlled Component: The component where React's state controls the form input element. It is used when control is required over the data being entered into a from.
---> UnControlled Component: It is used when there is no need to dynamically inspect user inputs. Like subscribing news letter or user is uploading a file. in this it is managed by 'ref'.
+--> UnControlled Component: It is used when there is no need to dynamically inspect user inputs. Like subscribing news letter or user is uploading a file. In this it is managed by 'ref'.
 
 9- Key Attribute ?
 
@@ -55,7 +58,7 @@ It is a React special component which allows us to group multiple element "witho
 
 11- Virtual Dom ?
 
-It is a lightweight copy of the actual DOM, consisting of a tree of JS objects. React creates a VDOM for every component and keeps it up-to-date with the component's state. When a component's state changes, React first updates its VDOM, then efficiently calculates the minimum number of changes needed to update the real DOM.
+It is a lightweight copy of the actual DOM, consisting of a tree of JS objects. React creates a single Virtual DOM tree of the entire UI, where each component contributes its part. When a <User /> component's state changes, React create new virtual subtree for that component, React then compares this new subtree with the old <User /> part of the previous Virtual DOM tree, then efficiently calculates the minimum number of changes needed to update the real DOM.
 
 12- How Virtual Dom Work ?
 
@@ -86,14 +89,17 @@ In this we actually cleaning up resources, event listner and subscription. Means
 
 Props drilling is when props is passed through multiple nested component. It is difficult to maintain.
 --> To avoid this we have Context APi, which is used to share data across component without props drilling.
---> Component composition is also used, in this we structure our component in such a way that a parent component  can directly inject the data it needs into its children.
+--> Component composition is also used, in this we structure our component in such a way that a parent component can directly inject the data it needs into its children.
 
 16- Higher Order Component ?
 
-A function that takes component as input and after modifying it returns an enhanced version of that component.
+A function that takes component and after modifying it returns an enhanced version of that component.
 It don't modify the original component; they wrap it with new functionality.
 
 --> It is used to fetch data from an API and pass it as props to the wrapped component. This way, multiple components can use the same data-fetching logic without each one having to write its own useEffect hook to fetch data. 
+
+Authentication: Redirect if user not logged in.
+Permissions: Hide/disable components based on roles.
 
 17- React Reconciliation process?
 
@@ -124,7 +130,7 @@ But to pass data from child to parent it uses callback function.
 
 22- Webpack ?
 
-It is a module bundler, which takes JS files, CSS files, images and other assets and their depedencies and bundle them into a single file or multiple file that can be loaded by when browser. It is configured through " webpack.config.js".
+It is a module bundler, which takes JS files, CSS files, images and other assets and their depedencies and bundle them into a single file or multiple file that can be loaded by browser. It is configured through " webpack.config.js".
 
 23- What happen if we try to update state directly in React ?
 
@@ -143,7 +149,7 @@ A popular CSS-in-JS library that allows you to write CSS styles directly into JS
 
 26- React Server Component ?
 
-A component which entirely rendered on server and send necessary HTML and data to client which reduce JS bundle size which improves performance.
+A component which entirely rendered on server and send necessary HTML and data to client which reduce JS bundle size(less JavaScript sent to browser) which improves performance.
 We can also fetch data in server component and send it to client.
 We can't use hooks, button listners in server component.
 
@@ -157,18 +163,12 @@ Eg: Form Event, mouse and touch events.
 
 /user/:id --> ':id' is dynamic route.
 
-29- Keys in React and its importance ?
-
-A key is a special string attribute in React, used to uniquely identify elements in a list.
-It helps React efficiently update and re-render component when list change.
-** When static data then use "index" as a key, otherwise use "id's" as a key.
-
-30- Virtualization in React ?
+29- Virtualization in React ?
 
 A performance optimization technique that renders only visible items in a long list instead of doing all.
 By installing react-window we make it working.
 
-31- Memory leaks in React ?
+30- Memory leaks in React ?
 
 It happens when a component holds on to memory after its unmounted, due to
 --> unclosed event listner.
@@ -180,22 +180,22 @@ Chrome Dev tools (F12 --> Performance tab)
 Record memory usage before and after component unmounting.
 If memory usage keeps increasing without releasing memory, there's a leak.
 
-32- What is slug and its usage ?
+31- What is slug and its usage ?
 
-It is a URL-friendly identifier used in React app to uniquely identify a resource, for example, in www.example.com/blog/what-is-a-slug, what-is-a-slug is the slug.
+It is a URL-friendly identifier used in React app to uniquely identify a resource, for example, in www.example.com/blog/what-is-a-slug, "what-is-a-slug" is the slug.
 Purpose:
-SEO optimization
-User friendly URL's
+SEO optimization.
+User friendly URL's.
 Dynamic Routing in React Router.
 
-33- React profiler ?
+32- React profiler ?
 
-A built in React developer tool helps in measuring the performance of React app by tracking how often component render and how much time is yaken to render.
-It is used only fro development and debugging to check performance, but in production we remove it.
+A built in React developer tool that helps in measuring the performance of React app by tracking how often component render and how much time is taken to render.
+It is used only for development and debugging to check performance, but in production we remove it.
 
-34- Code Splitting ?
+33- Code Splitting ?
 
-By using Lazy and Suspense we can split code. This help to render only those pages where user visit.
+By using React.Lazy() and Suspense we can split code. This help to render only those pages where user visit.
 
 34- CSR , SSR, SSG, ISR ?
 
@@ -240,57 +240,52 @@ Same as SSG with the ability to update Content.
 Cons:
 Complex than SSG for implementation.
 
-35- Single Page Application ?
-
-A web application that loads a single HTML page and dynamically updates the content as the user interacts with it, without requiring a full page reload from the server it update the specific part of the page that needs to change.
-Examples of SPAs
-Gmail: When you navigate through your inbox or open an email, the page doesn't fully reload. The sidebar and header stay the same while the main content area is updated with the new information. 📧
-Google Maps: As you pan and zoom, the map area updates smoothly without a page reload. New map tiles and data are fetched dynamically. 🗺️
-
+- React by itself only supports client-side rendering.
+- Frameworks like Next.js extend React to support SSR, SSG, and ISR allowing you to mix all four rendering types in one app.”
 
 ********************************* React Hooks *********************************
 
-36- State Management Hooks.
+35- State Management Hooks.
 
 --> useState : used for managing simple states.
 --> useReducer: used for complex state logic like login and logout.
 
-37- How "const [count, setCount] = useState(0);" value changes ?
+36- How "const [count, setCount] = useState(0);" value changes ?
 
 As we know when we declare array with const it can be mutable because it actually referencing the object not value. 
 In this case, when the function is triggered, our component renders,  and React gives us a new count (from its hidden memory store).
 React doesn’t reassign it, it just runs the function again with updated data.
 
-38- Side Effect.
+37- Side Effect.
 
 --> useEffect: It is used for handling side effect in your component such as data fetching, subscription or manually updating the DOM.
 
-39- What happens if we remove depedency array from useEffect?
+38- What happens if we remove depedency array from useEffect?
 
 Runs after every render, no matter what. If your component re-renders frequently, the effect will run frequently too.
 
-40- Context and performance optimization hooks.
+39- Context and performance optimization hooks.
 
---> useContext: Avoids prop drilling by using React context to share states globally. It is best for Global themesz, language setting and auth.
---> useMemo: It memorizes the result of an expensive computation function and prevents re-calculation unless depedencies change.
+--> useContext: Avoids prop drilling by using React context to share states globally. It is best for Global themes, language setting and auth.
+--> useMemo: It memorizes the result of an expensive computation function and prevents re-calculation unless depedencies change (map example).
 --> useCallback: Memorize function to avoid re-creating it every time. Best for optimizing performance when passing function as props.
 
-41- Reference Hook.
+40- Reference Hook.
 
 --> useRef: Use for accessing DOM element or storing mutable values without causing re-renders. For example to store previous value, and it does not trigger re-renders, the previous value is stored efficiently.
 
-42- What is React Mmeo ?
+41- What is React Mmeo ?
 
 A higher-order component that memoizes a component that prevents unnecessary re-renders if props haven’t changed.
 Optimize rendering by memorizing the result of component.
 
-43- What is Custom Hooks ?
+42- What is Custom Hooks ?
 
 Your own functions that start with use.
 Allow you to extract and reuse logic (stateful or effectful).
 Follow the same rules as built-in hooks (must start with use, must be called inside components/hooks).
 
-44- Redux vs Context API ?
+43- Redux vs Context API ?
 
 --> Redux: It provides a single, centralized store that can handle global state for the entire app. It contains Store, reducer and action methods.
 --> Context: A built in method which allows to pass data to across child without props drilling.
@@ -301,4 +296,10 @@ Redux allows only components where state is update.
 
 === In short Redux is a state management architecture, while Context is just a React feature for avoiding prop drilling.
 
-45- Design patterns ?
+44- Design patterns ?
+
+Design patterns in React are reusable ways of organizing your components and logic to make your code more maintainable, scalable, and easy to test.
+
+45- Hydration ?
+
+Hydration is the process where React takes the static HTML rendered by the server and makes it interactive by attaching its JavaScript logic to it.
