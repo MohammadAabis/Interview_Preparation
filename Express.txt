@@ -17,9 +17,8 @@ Avoid sensitive data in JWT payloads and keep tokens short-lived; use refresh to
 It is used to execute (mounting) middleware functions to the application's request-processing pipeline.
 
 Key aspects of app.use():
-Middleware: It is primarily used to register middleware functions that have access to the request object (req), the response object (res), and the next middleware function in the application's request-response cycle. 
-Scope of Application:
-When called without a specific path, the middleware applies to all incoming requests, regardless of the HTTP method (GET, POST, PUT, DELETE, etc.) or the URL path.
+Middleware: Middleware are functions that run before your routes and can modify the request, response, or decide what happens next. 
+Scope of Application: When called without a specific path, the middleware applies to all incoming requests, regardless of the HTTP method (GET, POST, PUT, DELETE, etc.) or the URL path.
 Global Middleware: Setting up middleware that applies to the entire application, such as body parsers (express.json(), express.urlencoded()), static file serving (express.static()), logging middleware, or authentication checks.
 
 4- Next parameters in middlewares ?
