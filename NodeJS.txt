@@ -61,9 +61,9 @@ Asnychronous:
 
 --> Synchronous code block the call stack, so it run first.
 --> When it encounters async function (setTimeout, file I/O or HTTP request) it ia send to Web APIs, which handle the operation in background.
---> The Call Stack does not wait for async finction to finish and it moves to next line imeediately.
+--> The Call Stack does not wait for async function to finish and it moves to next line imeediately.
 --> Once the Call Stack is empty, the event loop first checks Microtask Queue (Promises, Process.NextTick).
---> Finally, the Event Loop process the Task Queue(file I/O).
+--> Finally, the Event Loop process the Callback Queue(e.g., setTimeout, file I/O callbacks).
 
 10- What are promises in NodeJS ?
 
@@ -94,7 +94,7 @@ It contains all the details about project, like name, version, description and t
 
 It is a function used in web applications to process requests and responses. It serves as bridge between the client and server, enabling tasks like logging, authentication, error handling and data parsing.
 
-14- Purpose od Module Exports in NodeJS ?
+14- Purpose of Module Exports in NodeJS ?
 
 -- Make code Modular.
 -- Code Reusability.
@@ -130,19 +130,19 @@ Cluster:
 The cluster module allows you to create multiple NodeJS processes (workers) that all share the same server port effectively utilizing multiple CPU cores for better performance. Each workers runs its own event loop, memory, and V8 engine. It is managed by a master (primary) process that distributes requests.
 
 Working of Clusters:
-The master process uses the cluster module to fork(split/branch) child processes. Each runs the same code The OS automatically distributes incoming requests among the workers. If a worker crashes, the master can spawn(generate) a new one improving reliability.
+The master process uses the cluster module to fork(split/branch) child processes. Each runs the same code. The OS automatically distributes incoming requests among the workers. If a worker crashes, the master can spawn(generate) a new one improving reliability.
 
 18- CLusters Vs Worker Thread ?
 
 🧠 Cluster:
 Creates multiple Node processes (one per CPU core).
 Each process has its own memory & event loop.
-Used for scaling servers — handling more incoming requests in parallel.
+Used for scaling servers handling more incoming requests in parallel.
 Can’t share memory directly between workers.
 Communication via messages (IPC).
 
 ✅ Use it for:
-Web servers, APIs — to utilize all CPU cores.
+Web servers, APIs to utilize all CPU cores.
 
 ⚙️ Worker Threads:
 Creates multiple threads inside a single process.
@@ -155,8 +155,7 @@ Heavy computation tasks inside one app, not scaling servers.
 
 19- Process.NextTick() and SetImmediate() ?
 
-Both are asynchronous functions and behave differently.  Process.NextTick schedule a function to be executed just after synchronous code but before event loop abd SetImmediate schedule a callbacks to be executed in the check phase
-of the event loop.
+Both are asynchronous functions and behave differently. Process.NextTick() schedule a function to be executed just after synchronous code but before event loop and SetImmediate() schedule a callbacks to be executed in the check phase of the event loop.
 
 20- Buffer and Stream ?
 
@@ -179,7 +178,7 @@ Macro Task execute after Micro. It includes setTimeout, setInterval, SetImmediat
 
 22- State Management ?
 
-To achieve this, we should use Redis( caching, session storage), Mongo/Postgre (long term storage), JWT(stateless auth).
+To achieve this, we should use Redis( caching, session storage), Mongo/Postgres (long term storage), JWT(stateless auth).
 
 23- How to improve NodeJS app performance ?
 
@@ -211,7 +210,7 @@ Easy to build & deploy (good for small/medium apps).
 Hard to scale or maintain as app grows.
 
 -- Microservices: 
-Application divided into small, independent services — each with its own logic and database.
+Application divided into small, independent services each with its own logic and database.
 Each service:
 Has its own database (can be different type).
 Runs on its own port.
