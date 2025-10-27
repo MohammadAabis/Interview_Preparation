@@ -79,9 +79,11 @@ It is a fixed-size collection that automatically overwrites the oldest documents
 
 5- CAP ?
 
---> Consistency:	Every node in the system has the same data at the same time.
---> Availability:	Every request gets a response, even if some nodes fail.
---> Partition:      Tolerance	The system continues working even if communication breaks between nodes (network partition).
+--> Consistency:	           Every node in the system has the same data at the same time.
+--> Availability:	           Every request gets a response(success/fail), even if some nodes fail.
+--> Partition(Tolerance):      The system continues working even if communication breaks between nodes (network partition).
+
+Example: MongoDB Replica set where primary and secondary nodes.
 
 6- Replication ?
 
@@ -180,6 +182,12 @@ GridFS stores a large file by splitting it into small chunks (default 255 KB eac
 | 3  | Apple   | West   | 300    |
 | 4  | Banana  | East   | 400    |
 | 5  | Apple   | East   | 500    |
+
+SELECT product, SUM(amount) AS total_sales
+FROM sales
+WHERE region = 'West'         -- filters rows before grouping
+GROUP BY product
+HAVING SUM(amount) > 300;     -- filters groups after aggregation
 
 -- Where:
 Filter rows before grouping.
