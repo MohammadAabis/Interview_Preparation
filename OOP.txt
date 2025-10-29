@@ -6,16 +6,20 @@ Protect sensitive data.
 Prevent direct modification.
 Maintain control via methods.
 
+Example: Think of a bank account you can deposit or withdraw money, but you can’t directly change the account balance.
+
 --> Abstraction: Hiding complex implementation details and showing only what’s necessary.
 You don’t care how the email is sent, just that the function works.
 
 --> Polymorphism: Same method name but behaves differently depending on the object or input.
 
+Example: The action “makeSound()” mean Dog class implement it "Bark" and Cat class implement it "Meow".
+
 --> Inheritance: Mechanism where one class (child) inherits properties & methods from another (parent).
 Types are:
 Single:	One child inherits from one parent like (Dog → Animal).
 Multilevel:	Chain of inheritance from child to it's parent and then GrandParent like(Puppy → Dog → Animal).
-Hierarchical: Multiple children share one parent	like(Cat, Dog → Animal).
+Hierarchical: Multiple children share one parent like(Cat, Dog → Animal).
 Multiple: One class can have more than one superclass and inherit features from all parent classes. It is not supported in Java and JS, to achieve this we implement Interface.
 
 2- Abstract Class ?
@@ -36,6 +40,12 @@ It Cannot be instantiated.
 Class can extend only one abstract class.
 Can have a constructor.
 
+--> Interface:
+It can only have methods or property declaration.
+It Cannot be instantiated.
+Class can implement multiple interfaces.
+No constructor.
+
 5- What’s difference between composition and inheritance?
 
 Inheritance → “is-a” relationship (Dog is an Animal).
@@ -54,12 +64,6 @@ Same name.
 Different parameter lists.
 Happens in compile time (in strongly typed languages like Java, C++).
 JavaScript doesn’t natively support overloading but you can simulate it.
-
---> Interface:
-It can only have methods or property declaration.
-It Cannot be instantiated.
-Class can implement multiple interfaces.
-No constructor.
 
 7- Access modifiers ?
 
