@@ -22,10 +22,10 @@ Google Maps: As you pan and zoom, the map area updates smoothly without a page r
 --> Class Component: It is used before hooks and it is extended with 'React.Component'. State changes inside this was manage with 'this'.
 --> Functional Component: It is used after the introduction of states. We manage states with hooks.
 
-5- Stateless Component and Statefull component ?
+5- Stateless Component and Stateful component ?
 
---> Stateless Component: They do not manage any state, they just recieve data and display it.
---> Statefull component: They manage their own state and update the states according to user interaction.
+--> Stateless Component: They do not manage any state, they just receive data and display it.
+--> Stateful component: They manage their own state and update the states according to user interaction.
 
 6- Properties (props) ?
 
@@ -36,10 +36,10 @@ A way to pass data from parent component to child component. The child component
 --> State: It is a mutable object and store dynamic data. It is private and fully controlled by the component it belongs to.
 --> Props: It is a immutable object and only use for read data. It is only controlled by the parent component.
 
-8- Controlled and UnControlled Component ?
+8- Controlled and Uncontrolled Component ?
 
---> Controlled Component: The component where React's state controls the form input element. It is used when control is required over the data being entered into a from.
---> UnControlled Component: It is used when there is no need to dynamically inspect user inputs. Like subscribing news letter or user is uploading a file. In this it is managed by 'ref'.
+--> Controlled Component: The component where React state controls the form input element. It is used when control is required over the data being entered into a form.
+--> Uncontrolled Component: It is used when there is no need to dynamically inspect user inputs. Like subscribing news letter or user is uploading a file. In this it is managed by 'ref'.
 
 9- Key Attribute ?
 
@@ -109,7 +109,7 @@ When a component's state or props change, React creates a new virtual DOM tree f
 
 18- React Portals and when should they used?
 
-In React, a portal is a way to render a component's children into different part of the DOM outside parent component's hierachy, while maintaining the React component structure.
+In React, a portal is a way to render a component's children into different part of the DOM outside parent component's hierarchy, while maintaining the React component structure.
 
 ** It is used for to make popups.
 
@@ -151,12 +151,12 @@ A popular CSS-in-JS library that allows you to write CSS styles directly into JS
 
 A component which entirely rendered on server and send necessary HTML and data to client which reduce JS bundle size(less JavaScript sent to browser) which improves performance.
 We can also fetch data in server component and send it to client.
-We can't use hooks, button listners in server component.
+We can't use hooks, button listeners in server component.
 
 27- Synthetic event in React ?
 
 In React it is a cross-browser wrapper around the browser native event.
-It handles user interactions like clicks, keyboard input etc across different browser consistently.
+It handles user interactions like clicks, keyboard input across different browser consistently.
 Eg: Form Event, mouse and touch events.
 
 28- Dynamic routes in React ?

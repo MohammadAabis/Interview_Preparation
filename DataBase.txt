@@ -91,11 +91,11 @@ It creates multiple copies of data across servers to ensure high availability an
 
 7- Connection Pooling ?
 
-It is atechnique used to manage db Connection efficiently by maintaining a pool of re-useable connection instaed of opening and closing a new connection every time a query is execute.
+It is a technique used to manage db Connection efficiently by maintaining a pool of re-useable connection instead of opening and closing a new connection every time a query is execute.
 
 8- Aggregation ?
 
-It helps you to process and analyze data in Structured way, like a pipeline where data flows through different steps. In simple it is like to get final result  by appllying different filters.
+It helps you to process and analyze data in Structured way, like a pipeline where data flows through different steps. In simple it is like to get final result  by applying different filters.
 
 9- Replication and Sharding mechanism ?
 
@@ -201,7 +201,7 @@ Group all rows by product
 Calculate SUM(amount)
 Then filter groups whose total_sales > 500
 
-14- When to use RDMS and No-SQL?
+14- When to use RDMS and No-SQL ?
 
 -- SQL:
 Banking systems 💰
@@ -215,3 +215,32 @@ Real-time analytics dashboards 📊
 IoT device data 📡
 Chat applications 💬
 Product catalogs or content management 🧾
+
+15- Delete, Truncate and Drop?
+
+-- Delete:
+Deletes only matching rows
+Table still exists
+Columns, indexes, constraints remain
+
+-- Truncate:
+Table becomes empty
+All rows removed instantly
+Structure stays (columns, indexes still there)
+
+-- Drop:
+Removes entire table (structure + data)
+You lose everything including schema
+
+16- Unique and Primary Key ?
+
+-- Primary Key:
+Uniquely identifies each row
+Does NOT allow NULL
+Only one primary key per table
+
+-- Unique Key:
+Ensures values are unique
+Allows NULL
+A table can have multiple unique keys
+

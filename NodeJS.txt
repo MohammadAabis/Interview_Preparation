@@ -4,9 +4,9 @@ It is a open source and cross-platform JavaScript runtime environment that can r
 
 2- Key features of NodeJS ?
 
---> Asnychronous and event driven:
+--> Asynchronous and event driven:
 Operation don't block the execution thread.
-Flow of program is determined with user interaction(like user call some api).
+Flow of program is determined with user interaction(like user call some API).
 
 3- What does "Single Threaded" mean?
 
@@ -60,8 +60,8 @@ Asnychronous:
 🔁 Event Loop – constantly checks if the stack is empty, and if yes, moves queued tasks back into it.
 
 --> Synchronous code block the call stack, so it run first.
---> When it encounters async function (setTimeout, file I/O or HTTP request) it ia send to Web APIs, which handle the operation in background.
---> The Call Stack does not wait for async function to finish and it moves to next line imeediately.
+--> When it encounters async function (setTimeout, file I/O or HTTP request) it is send to Web APIs, which handle the operation in background.
+--> The Call Stack does not wait for async function to finish and it moves to next line immediately.
 --> Once the Call Stack is empty, the event loop first checks Microtask Queue (Promises, Process.NextTick).
 --> Finally, the Event Loop process the Callback Queue(e.g., setTimeout, file I/O callbacks).
 
@@ -102,7 +102,7 @@ It is a function used in web applications to process requests and responses. It 
 
 15- SetImmediate() and SetTimeOut () ?
 
-These are used to scedule the task.
+These are used to schedule the task.
 
 SetImmediate():
 --> Execute immediately after the current event loop iteration.

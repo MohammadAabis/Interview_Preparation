@@ -25,9 +25,13 @@ Global Middleware: Setting up middleware that applies to the entire application,
 
 It is a callback function used to call next middleware function.
 
-5- Difference between route-level and application-level middleware ?
+5- Types of middleware ?
 
-Application-level middleware runs for every incoming request to the entire application like app.use(myMiddleWare), while route-level middleware is specific to a particular route or group of routes like app.use('/test', middleware).
+Application-level middleware: It runs for every incoming request to the entire application like app.use(myMiddleWare). 
+Route-level middleware: It is specific to a particular route or group of routes like app.use('/test', middleware).
+Built-in middleware: app.use(express.json()).
+Third-party middleware: app.use(cors()).
+Error-handling middleware: Has 4 parameters: (err, req, res, next).
 
 6- Routing in Express ?
 
