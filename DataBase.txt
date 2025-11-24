@@ -29,6 +29,7 @@ By default, a stored procedure runs inside a transaction. So, if one operation f
 
 6- Joins in PostgreSQL ?
 
+Outer Join: It is used to fetch all data from both tables even nothing matches.
 Inner Join: It is used when we want to fetch the data that have matching values in both tables. In order words, when we want to fetch only matching data.
 Left Join: It returns all rows from left table and only matching rows from right table. If there is no match the result will contain Null for columns from right table.
 
@@ -244,3 +245,17 @@ Ensures values are unique
 Allows NULL
 A table can have multiple unique keys
 
+17- Aggregation ?
+
+MongoDB aggregation is a powerful feature used to process data records and return computed results similar to SQL’s GROUP BY, JOIN, WHERE, ORDER BY.
+-- $match: Filter documents (like SQL WHERE)   ===> { $match: { age: { $gt: 40 } } }
+-- $project: Select specific fields (like SELECT name, email) ===> { $project: { name: 1, email: 1, _id: 0 } }
+-- $sort: For ascending → 1, descending → -1 ===> { $sort: { name: 1 } }
+-- lookup: Join two collections (like SQL JOIN) ===> {
+  $lookup: {
+    from: "orders",
+    localField: "_id",
+    foreignField: "userId",
+    as: "userOrders"
+  }
+}
