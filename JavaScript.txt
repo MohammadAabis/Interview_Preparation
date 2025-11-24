@@ -218,3 +218,16 @@ Push:
 Pop:
 --> The pop() method removes the last element from an array.
 --> It modifies the original array and returns the removed element.
+
+31- What is Concat ?
+
+concat() is an array method in JavaScript that merges two or more arrays without modifying the original arrays.
+
+32- What are Shift and Unshift?
+
+-- Shift: Removes the first element from an array, Returns the removed element.
+-- Unshift: Adds element(s) to the start of an array, Returns the new array length.
+
+33- What is optional chaining in an object?
+
+Optional chaining (?.) is a JavaScript feature that lets you safely access nested object properties without causing errors, even if some part is null or undefined.
