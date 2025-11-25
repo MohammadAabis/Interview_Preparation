@@ -221,3 +221,15 @@ Why separate databases?
 Each service fully owns its data.
 Avoids conflicts or schema coupling.
 Allows better scaling & flexibility.
+
+27- Migration ?
+
+Migrating your project from one tech/tool/version to another within the MERN stack.
+-- Migration from JavaScript to TypeScript.
+-- Migration from Express REST API to GraphQL API\
+-- Migration from Local State → Redux / Zustand / Context API.
+
+28- How to handle errors in Node.Js ?
+
+Node.js handles errors using try/catch for synchronous and async/await code, .catch() for promises.
+In Express, we use a centralized error-handling middleware with next(err) to manage API errors.
