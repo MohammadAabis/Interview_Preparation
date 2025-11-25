@@ -285,21 +285,47 @@ Your own functions that start with use.
 Allow you to extract and reuse logic (stateful or effectful).
 Follow the same rules as built-in hooks (must start with use, must be called inside components/hooks).
 
-43- Redux vs Context API ?
-
---> Redux: It provides a single, centralized store that can handle global state for the entire app. It contains Store, reducer and action methods.
---> Context: A built in method which allows to pass data to across child without props drilling.
-
-*** Differences 
-Context re-renders every consumer when value changes.
-Redux allows only components where state is update.
-
-=== In short Redux is a state management architecture, while Context is just a React feature for avoiding prop drilling.
-
-44- Design patterns ?
+43- Design patterns ?
 
 Design patterns in React are reusable ways of organizing your components and logic to make your code more maintainable, scalable, and easy to test.
 
-45- Hydration ?
+44- Hydration ?
 
 Hydration is the process where React takes the static HTML rendered by the server and makes it interactive by attaching its JavaScript logic to it.
+In React (CSR), we actually doesn’t need hydration because JavaScript is responsible to populate the DOM. While in SSR like in Next.Js, it doesn’t send DOM element from server, it send our html as string and hydration is responsible to make interactive by adding JavaScript.
+
+45- Redux vs Context API ?
+
+-- Context:
+A built in method which allows to pass data to across child without props drilling.
+It is not a state management library and does NOT manage complex logic, It only shares data.
+
+-- Redux:
+Redux is a state management library used outside or inside React.
+It provides a single, centralized store that can handle global state for the entire app.
+In store it contains, 
+a State (like initial value), 
+an Action is plain object which contains payload(data) and type (increment/decrement, login/logout)
+and a Reducer where your actual logic is, and it receive state and action.
+
+CreateSlice(): Slice is a collection of reducer logic, actions, and initial state for a single feature, created using the createSlice function.
+
+*** Differences 
+Context re-renders every consumer when value changes. It is built in, good for small app, No reducers/actions needed.
+Redux allows only components where state is update. It is external library, designed for large app, Uses actions, reducers, dispatch(function that sends actions to the reducer, telling Redux to update the state) flow.
+
+46- Difference between useSelector and useDispatch in Redux?
+
+-- useSelector: Reads data from Redux store.
+-- useDispatch: Sends/dispatches actions to Redux store.
+
+47- What is the role of the Provider component in Redux, and why is it important?
+
+-- Provider:
+Wraps the whole app
+Makes Redux store available to all components
+Uses React Context internally
+
+Without Provider:
+No component can access state
+useSelector/useDispatch will not work
