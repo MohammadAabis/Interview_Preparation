@@ -233,3 +233,24 @@ Migrating your project from one tech/tool/version to another within the MERN sta
 
 Node.js handles errors using try/catch for synchronous and async/await code, .catch() for promises.
 In Express, we use a centralized error-handling middleware with next(err) to manage API errors.
+
+
+********************************* JWT *********************************
+
+🟦 Access Token
+
+Short-lived (e.g., 15 minutes)
+
+Stored in memory (NOT localStorage, NOT cookies).
+
+Used on every API request as Authorization: Bearer <token>
+
+🟧 Refresh Token
+
+Long-lived (7 days or 30 days)
+
+Stored as HTTP-only Cookie (JavaScript cannot access it)
+
+Used only to get a new access token when it expires
+
+Safe from XSS because JS cannot read it
