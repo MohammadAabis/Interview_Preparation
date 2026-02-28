@@ -19,6 +19,7 @@ Ans - Those Elements which gives you a complete sense of data they contain like 
 6- Difference between Block-level and Inline Elements?
 Ans - Block elements (<div>,<p>,<h1>,<ul>,<li>,<table>) create new lines while inline elements (<span>,<a>,<strong>,<emp>,<img>,<input>) do not start new line.
 --> You can set both height and width for block element for inline element you cant because it only take it's content length and protect it from overlapping. Horizontal padding and margins can be applied to inline elements 
+When you put inline element inside block element and give flex to parent then the child behaves as block element due to flex property. If you don't give flex it remains inline. You can't put block element inside inline element because it gives error or warning.
 
 7- Absolute and Relative URLs?
 Ans - Absolute URLs provide full URLs like (http://www.test.com) and take you to another websites. On the other hand relative URLs provide URLs like (page.html or images/image1.png) and browser behave it differently and search it inside the website.
