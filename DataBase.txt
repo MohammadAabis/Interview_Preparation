@@ -82,7 +82,7 @@ It is a fixed-size collection that automatically overwrites the oldest documents
 
 --> Consistency:	           Every node in the system has the same data at the same time.
 --> Availability:	           Every request gets a response(success/fail), even if some nodes fail.
---> Partition(Tolerance):      The system continues working even if communication breaks between nodes (network partition).
+--> Partition(Tolerance):    The system continues working even if communication breaks between nodes (network partition).
 
 Example: MongoDB Replica set where primary and secondary nodes.
 
