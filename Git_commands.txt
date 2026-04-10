@@ -1,0 +1,136 @@
+========== 1. Config Setting: ==========
+These commands will set global username and email for the first time when you use git. You can also override the global config by executing these commands again.
+==> git config --global user.email "your-email@example.com"
+==> git config --global user.name "Your Name"
+
+To check global configuration.
+==> git config --list
+
+
+========== 2. Creating a repository: ==========
+To check the current directory is git repository or not. Also, it tell us the status of any folder and file inside git.
+==> git status
+
+To initialize git.
+==> git init
+
+To check hidden files from any folder through terminal.
+==> ls -la  [la: long list]
+
+
+========== 3. Git Flow: ==========
+
+- git init   --> It becomes Working Directory.
+- git add    --> It goes to staging area which says I am ready to commit.
+- git commit --> It goes to local repository(.git).
+- git push   --> It goes to GitHub
+
+To stage changes.
+==> git add <file name> / git add .
+
+To un-stage. '-r' Recursively remove all files inside the directory from tracking.
+==> git rm --cached A -r. 
+
+To commit
+==> git commit -m "message"
+
+If user enter commit command without message it opens a file to give the name for commit.
+==> git config --global core.editor "code --wait"
+
+To push to GitHub.
+==> git push
+
+========== 4. More about Git: ==========
+
+To see log in one line.
+==> git log --oneline
+
+To see status.
+==> git status
+
+To discard changes in working directory.
+==> git restore <filename>
+
+If you don't want to track something from git, you need to add them in .gitignore file.
+
+
+========== 5. Git Branches: ==========
+
+To see branches.
+==> git branch
+
+To create branch.
+==> git branch <branch Name>
+
+To switch branch.
+==> git checkout <branch name>
+
+To create and switch that branch
+==> hit checkout -c <branch name>
+
+To merge branch, you need to be inside master or that branch where you want to merge.
+==> git merge <branch name>
+
+If two members made changes in same file and you then merge it will show conflict. After running above command it will show you suggestion, accept incoming changes, accept current changes and accept both changes, it's up to you to select which is correct. It also create a file for comparison and you select the changes. After that you need to commit that merge.
+
+To change branch name.
+==> git branch -m <old-branch-name> <new-branch-name>
+
+To delete branch, you need to first go another branch then delete it.
+==> git branch -d <branch name>
+
+
+========== 6. Diff and Stash: ==========
+
+---> Diff 
+
+To compare staging area with repository.
+==> git diff --staged
+
+To compare between two branches.
+==> git diff <branch_name_one> <branch_name_2>
+==> git diff branch_name_one..branch_name_2
+
+To compare specific commits.
+==> git diff <commit_hash_one> <commit_hash_two>
+
+
+---> Stash
+Stash is a way to save your changes in a temporary location. It’s useful when switching branches without losing work. You can then come back to the file later and apply the changes.
+
+To stash your work.
+==> git stash
+
+To give naming the stash.
+==> git stash save "my message"
+
+To check stash list.
+==> git stash list
+
+To apply the stash.
+==> git stash apply
+
+To apply specific stash.
+==> git stash apply stashA{0} 
+
+To apply stash and drop from list.
+==> git stash pop
+
+To drop stash.
+==> git stash drop
+
+To apply stash to specific branch.
+==> git stash apply stash@{0} <branch_name>
+
+To clear the stash.
+==> git stash clear
+
+========== 7. Rebase and Reflog: ==========
+
+---> Rebase
+Git rebase is a powerful Git feature used to change the base of a branch.
+
+To rebase(change your base) ensure you are on the branch you want to rebase.
+
+==> git checkout feature-branch
+==> git rebase main
