@@ -21,14 +21,18 @@ function greet() {
 
 --> Variable Hoisting:
 Var are hoisted and initialized to undefined.
-console.log(myVar); // Output: undefined
+console.log(myVar); ==> Output: undefined || door is unlocked because it is initialized, so no TDZ.
 var myVar = 10;
-console.log(myVar); // Output: 10
+console.log(myVar); ==> Output: 10
 
 Let and const are also hoisted, but they are not initialized.
-// console.log(myLet); // ReferenceError: Cannot access 'myLet' before initialization
-let myLet = 20; || const myLet = 20;
+console.log(myLet); ==> ReferenceError: Cannot access 'myLet' before initialization || door is locked because no initialization, so you are in TDZ
+let myLet = 20; || const myLet = 20; ==> Initialization & Assignment happen HERE.
+The TDZ ends the millisecond this line is executed.
+The "door" is now unlocked.
 console.log(myLet); // Output: 20
+
+TDZ: It's not a physical place in your code, but as a state of "forbidden access. In case of var when it is hoisted with undefined the door is open and it doesn't goes to TDZ while in case of let and const are hoisted but not initialized so it goes to TDZ. The reason is to catching bugs before its usage.
 
 4- Difference between var, let and const.
 
