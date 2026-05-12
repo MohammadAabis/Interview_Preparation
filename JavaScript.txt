@@ -1,6 +1,6 @@
 1- What is JavaScript?
 
-JavaScript is a high-level, interpreted programming language primarily known for enabling interactive and dynamic content on websites. It is an interpreted language which does not need to compile because JavaScript code is directly executed by a browser's JavaScript engine.
+JavaScript is a high-level, interpreted programming language(code is executed line-by-line) primarily known for enabling interactive and dynamic content on websites. It is an interpreted language which does not need to compile because JavaScript code is directly executed by a browser's JavaScript engine.
 
 2- Template literals in JavaScript?
 
