@@ -4,7 +4,7 @@ React is JS library used for building powerful UI. It works on component based a
 
 2- Single Page Application (SPA) ?
 
-A type of web application which loads a single html page. It update only the affected part only instead of rendering whole page. 
+A type of web application which loads a single html page. It update only the affected part instead of rendering whole page. 
 Benefits to use this are Faster load times, Better Responsiveness but harder for SEO, because it used only single url.
 
 Gmail: When you navigate through your inbox or open an email, the page doesn't fully reload. The sidebar and header stay the same while the main content area is updated with the new information. 📧
@@ -125,7 +125,7 @@ It is also known as the "pyramid of doom," it arises when dealing with multiple 
 
 21- How React transfer data ?
 
-React in uni-directional, it sends data from parent to child components as props.
+React is uni-directional, it sends data from parent to child components as props.
 But to pass data from child to parent it uses callback function.
 
 22- Webpack ?
