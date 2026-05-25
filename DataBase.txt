@@ -96,7 +96,7 @@ It is a technique used to manage db Connection efficiently by maintaining a pool
 
 8- Aggregation ?
 
-It helps you to process and analyze data in Structured way, like a pipeline where data flows through different steps. In simple it is like to get final result  by applying different filters.
+It helps you to process and analyze data in Structured way, like a pipeline where data flows through different steps. In simple it is like to get final result by applying different filters.
 
 9- Replication and Sharding mechanism ?
 
