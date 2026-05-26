@@ -54,8 +54,8 @@ Non-Primitive Data Types:
 
 6- == and === ?
 
---> == It performs type coercion before comparing the values. 5 == '5' -- True
---> === It performs a strict comparison without any type coercion. 5 === '5' -- False.
+--> == It performs type coercion before comparing the values. 5 == "5" -- True
+--> === It performs a strict comparison without any type coercion. 5 === "5" -- False.
 
 7- Null and undefined?
 
