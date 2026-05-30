@@ -77,6 +77,10 @@ React finds the matching component
   ↓
 Executes your onClick function
 
+Example: We have one main div and inside it two nested divs inside that we have a button, each divs have some events to execute on click. In case of event bubbling which is default case it first execute inner most div and comes up by executing each events on the otherhand event delegation it execute from parent div to its child div.
+
+Note: If we don't want that all these execute each time we trigger a button then we can use " event.stopPropagation()" function which stops it. In this case the event never reaches the parent.
+
 
 9- IIFE (Immediate Invoked Function Expression)?
 
