@@ -89,7 +89,9 @@ A JS function that is defined and executed immediately after it's created and do
 10- Closures?
 
 A closure in JS occurs when an inner function "remembers" and can access variables from its outer  function's scope, even after the outer function has finished executing. This allows the inner function to retain a reference to those variables. It modifies that same variable, not a copy. 
+
 The purpose of this is to enable data encapsulation by creating private variables.
+It is also used for optimization. You can create a cache variable inside a function scope, and return an inner function that checks that cache before running heavy, time-consuming calculations.
 
 11- SetTimeout vs setInterval?
 
