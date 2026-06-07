@@ -128,7 +128,9 @@ A function which execute only one time. It solve the problem like infinite loop.
 
 16- WeakSet and WeakMap?
 
-These are specialized collections that store weak references to objects. This means they do not prevent their referenced objects from being garbage collected if there are no other strong references to those objects in the program. Both are not iterable, and you can’t get its size.
+Normally, JS has a built-in Garbage Collector that cleans up objects when they are no longer being used. However, if an object is stored inside a regular Set or Map, JavaScript keeps it alive forever—even if the rest of your app has completely deleted it.
+
+SO, these are specialized collections that store weak references to objects. This means they do not prevent their referenced objects from being garbage collected if there are no other strong references to those objects in the program. Both are not iterable, and you can’t get its size.
 
 --> WeakSet: Stores a collection of unique objects. (Tracking which users are online right now)
 --> Weakmap: Stores key-value pairs where the keys must be objects and the values can be any data type. (When you want to add extra data, like how many messages each user sent)
